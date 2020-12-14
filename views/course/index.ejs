@@ -1,0 +1,25 @@
+<%- include ('../shared/header') %>
+  <div class="row mt-4">
+    <div class="offset-md-3 col-md-6">
+      <h1>Courses</h1>
+      <hr />
+
+      <ul class="list-group">
+        <% for(var i=0; i<courses.length; i++) { %>
+          <% if(courses[i].completed) { %>
+          <li class="list-group-item font-italic list-group-item-light" style="text-decoration: line-through">
+          <% } else { %>
+          <li class="list-group-item">
+          <% } %>
+            <%=courses[i].title%>
+            <a href="/tests/<%=courses[i]._id%>"
+               class="btn btn-info btn-sm float-right">List Tests</a>
+            <a href="/tests/<%=courses[i]._id%>/add"
+               class="btn btn-primary btn-sm float-right mr-1">Add Tests</a>
+            
+          </li>        
+        <% } %>
+      </ul>
+    </div>
+  </div>
+<%- include ('../shared/footer')%>
